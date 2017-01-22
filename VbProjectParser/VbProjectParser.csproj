@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B584D6D-0292-4966-9426-DA02BF1EFAAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VbProjectParser</RootNamespace>
+    <AssemblyName>VbProjectParser</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="OpenMcdf">
+      <HintPath>..\packages\OpenMcdf.2.0.5739.40493\lib\OpenMcdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compression\Algorithms.cs" />
+    <Compile Include="Compression\BitHelper.cs" />
+    <Compile Include="Compression\CompressedBuffer.cs" />
+    <Compile Include="Compression\CompressedChunk.cs" />
+    <Compile Include="Compression\CompressedChunkData.cs" />
+    <Compile Include="Compression\CompressedChunkHeader.cs" />
+    <Compile Include="Compression\CompressionContainer.cs" />
+    <Compile Include="Compression\CopyToken.cs" />
+    <Compile Include="Compression\DecompressedChunk.cs" />
+    <Compile Include="Compression\DecompressedBuffer.cs" />
+    <Compile Include="Compression\CompressionAlgorithm.cs" />
+    <Compile Include="Compression\LiteralToken.cs" />
+    <Compile Include="Compression\TokenSequence.cs" />
+    <Compile Include="Compression\XlBinaryReader.cs" />
+    <Compile Include="Data\ABNF\HostExtenderRef.cs" />
+    <Compile Include="Data\ABNF\HostExtenders.cs" />
+    <Compile Include="Data\ABNF\ProjectId.cs" />
+    <Compile Include="Data\ABNF\ProjectItem.cs" />
+    <Compile Include="Data\ABNF\ProjectModule.cs" />
+    <Compile Include="Data\ABNF\ProjectPackage.cs" />
+    <Compile Include="Data\ABNF\ProjectProperties.cs" />
+    <Compile Include="Data\ABNF\ProjectWindowRecord.cs" />
+    <Compile Include="Data\ABNF\ProjectWorkspace.cs" />
+    <Compile Include="Data\ABNF\Common\CommonRegexPatterns.cs" />
+    <Compile Include="Data\ABNF\Enums\LibidReferenceKind.cs" />
+    <Compile Include="Data\ABNF\Enums\ProjectKind.cs" />
+    <Compile Include="Data\ABNF\Common\CommonConverters.cs" />
+    <Compile Include="Data\ABNF\Common\CommonTokens.cs" />
+    <Compile Include="Data\ABNF\LibidReference.cs" />
+    <Compile Include="Data\ABNF\ProjectReference.cs" />
+    <Compile Include="Data\ABNF\VBAPROJECTText.cs" />
+    <Compile Include="Data\Base\Attributes\AutoReadAttribute.cs" />
+    <Compile Include="Data\Base\Attributes\IsEvenNumber.cs" />
+    <Compile Include="Data\Base\Attributes\LengthMustEqualMember.cs" />
+    <Compile Include="Data\Base\Attributes\MustBeAttribute.cs" />
+    <Compile Include="Data\Base\Attributes\PropertyMustEqualMember.cs" />
+    <Compile Include="Data\Base\Attributes\RangeAttribute.cs" />
+    <Compile Include="Data\Base\Attributes\ValidateWith.cs" />
+    <Compile Include="Data\Base\Attributes\ValidationAttribute.cs" />
+    <Compile Include="Data\Base\Attributes\ValueMustEqualMember.cs" />
+    <Compile Include="Data\Base\DataBase.cs" />
+    <Compile Include="Data\Base\ReflectionHelper.cs" />
+    <Compile Include="Data\Base\ValidationResult.cs" />
+    <Compile Include="Data\DirStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Exceptions\WrongValueException.cs" />
+    <Compile Include="Data\ModuleStream.cs" />
+    <Compile Include="Data\ProjectStream.cs" />
+    <Compile Include="Data\ABNF\ProjectWindow.cs" />
+    <Compile Include="Data\ABNF\ProjectWindowState.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTCODEPAGE.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTCONSTANTS.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTDOCSTRING.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTHELPCONTEXT.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTHELPFILEPATH.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\_PROJECTINFORMATION.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTLCID.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTLCIDINVOKE.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTLIBFLAGS.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTNAME.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTSYSKIND.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTVERSION.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULECOOKIE.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULEDOCSTRING.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULEHELPCONTEXT.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULENAMEUNICODE.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULEOFFSET.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULEPRIVATE.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULEREADONLY.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULESTREAMNAME.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULETYPE.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\_MODULE.cs" />
+    <Compile Include="Data\_PROJECTMODULES\PROJECTCOOKIE.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_MODULE\MODULENAME.cs" />
+    <Compile Include="Data\_PROJECTMODULES\_PROJECTMODULES.cs" />
+    <Compile Include="Data\_PROJECTREFERENCES\REFERENCE.cs" />
+    <Compile Include="Data\_PROJECTREFERENCES\REFERENCENAME.cs" />
+    <Compile Include="Data\_PROJECTREFERENCES\ReferenceRecords\REFERENCECONTROL.cs" />
+    <Compile Include="Data\_PROJECTREFERENCES\ReferenceRecords\REFERENCEORIGINAL.cs" />
+    <Compile Include="Data\_PROJECTREFERENCES\ReferenceRecords\REFERENCEPROJECT.cs" />
+    <Compile Include="Data\_PROJECTREFERENCES\ReferenceRecords\REFERENCEREGISTERED.cs" />
+    <Compile Include="Data\_PROJECTREFERENCES\_PROJECTREFERENCES.cs" />
+    <Compile Include="Data\_VBA_PROJECTStream.cs" />
+    <Compile Include="Helpers\Validation\ValidationMessage.cs" />
+    <Compile Include="Helpers\Validation\ValidationResult.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\VbaStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AbnfFramework\AbnfFramework.csproj">
+      <Project>{f0a82007-ae94-46e2-b836-716b26802a5f}</Project>
+      <Name>AbnfFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
