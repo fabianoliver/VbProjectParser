@@ -101,6 +101,7 @@
     <Compile Include="Data\ABNF\ProjectWindow.cs" />
     <Compile Include="Data\ABNF\ProjectWindowState.cs" />
     <Compile Include="Data\_PROJECTINFORMATION\PROJECTCODEPAGE.cs" />
+    <Compile Include="Data\_PROJECTINFORMATION\PROJECTCOMPATVERSION.cs" />
     <Compile Include="Data\_PROJECTINFORMATION\PROJECTCONSTANTS.cs" />
     <Compile Include="Data\_PROJECTINFORMATION\PROJECTDOCSTRING.cs" />
     <Compile Include="Data\_PROJECTINFORMATION\PROJECTHELPCONTEXT.cs" />
