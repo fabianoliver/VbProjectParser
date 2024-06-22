@@ -41,8 +41,9 @@ namespace VbProjectParser.Compression
                 // TODO: DO something like when compressedcurrent < compressedend -> add a new tokensequence
 
                 // page 57: CompressedChunkData contains an array of TokenSequence elements
-
-                var size = Math.Min(header.CompressedChunkSize, Data.Length - Data.i);
+                // Subtract 2 from the header.CompressedChunkSize since have already read 
+                // two bytes from the CompressedChunk data when the header was read.
+                var size = Math.Min(header.CompressedChunkSize - 2, Data.Length - Data.i);
                 var tokenSequences = new List<TokenSequence>();
 
                 int processedBytes = 0;
