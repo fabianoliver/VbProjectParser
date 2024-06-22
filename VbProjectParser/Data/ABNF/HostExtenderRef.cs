@@ -53,7 +53,7 @@ namespace VbProjectParser.Data.ABNF
             Syntax
                 .Entity<HostExtenderRef>()
                 .Property(x => x.LibName)
-                .ByRegexPattern("VBE[\x21-\x3A\x3C-\xFF]*")
+                .ByRegexPattern("VBE|[\x21-\x3A\x3C-\xFF]*")
                 .WithPostfix(new LiteralToken(";"));
 
             Syntax
