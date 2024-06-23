@@ -27,10 +27,8 @@ namespace VbProjectParser.Data._PROJECTREFERENCES.ReferenceRecords
         [LengthMustEqualMember("SizeOfLibidRelative")]
         public readonly Byte[] LibidRelative;
 
-        [ValueMustEqualMember("ProjectInformation.VersionRecord.VersionMajor")]
         public readonly UInt32 MajorVersion;
 
-        [ValueMustEqualMember("ProjectInformation.VersionRecord.VersionMinor")]
         public readonly UInt16 MinorVersion;
 
         protected readonly PROJECTINFORMATION ProjectInformation; 
