@@ -27,13 +27,15 @@ namespace VbProjectParser.Data.ABNF
             Syntax
                 .Entity<VBAPROJECTText>()
                 .Property(x => x.HostExtenders)
-                .ByRegisteredTypes(typeof(HostExtenders));
+                .ByRegisteredTypes(typeof(HostExtenders))
+                .WithPrefix(new LiteralToken("[Host Extender Info]") + CommonTokens.NWLN)
+                .WithPostfix(CommonTokens.NWLN);
 
             Syntax
                 .Entity<VBAPROJECTText>()
                 .Property(x => x.ProjectWorkspace)
                 .ByRegisteredTypes(typeof(ProjectWorkspace))
-                .WithPrefix(CommonTokens.NWLN + new LiteralToken("[Workspace]") + CommonTokens.NWLN)
+                .WithPrefix(new LiteralToken("[Workspace]") + CommonTokens.NWLN)
                 .IsOptional();
         }
     }

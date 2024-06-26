@@ -23,8 +23,7 @@ namespace VbProjectParser.Data.ABNF
             Syntax
                 .Entity<HostExtenders>()
                 .EnumerableProperty(x => x.HostExtenderRef)
-                .ByRegisteredTypes(typeof(HostExtenderRef))
-                .WithPrefix(new LiteralToken("[Host Extender Info]") + CommonTokens.NWLN);
+                .ByRegisteredTypes(typeof(HostExtenderRef));
         }
     }
 }
